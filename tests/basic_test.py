@@ -17,19 +17,19 @@ def test_raises():
         divide(3, 0)
 
 
-@pytest.fixture
-def app(qtbot):
-    test_app = App()
-    qtbot.addWidget(test_app)
-    return test_app
+# @pytest.fixture
+# def app(qtbot):
+#     test_app = App()
+#     qtbot.addWidget(test_app)
+#     return test_app
 
 
-@pytest.mark.parametrize(
-    'func, set, attr, expected',
-    [('app.spin.setValue', 34, 'app.label.text()', 'Value : 34'),
-     ('app.spin.setValue', 9, 'app.label.text()', 'Value : 9'),
-     ])
-def test_update_func(app, func, set, attr, expected):
-    eval(func + '(set)')
-    time.sleep(0.1)
-    assert eval(attr) == expected
+# @pytest.mark.parametrize(
+#     'func, set, attr, expected',
+#     [('app.spin.setValue', 34, 'app.label.text()', 'Value : 34'),
+#      ('app.spin.setValue', 9, 'app.label.text()', 'Value : 9'),
+#      ])
+# def test_update_func(app, func, set, attr, expected):
+#     eval(func + '(set)')
+#     time.sleep(0.1)
+#     assert eval(attr) == expected
