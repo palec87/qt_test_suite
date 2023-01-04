@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+
+'''
+Simple app with one spinbox based on 
+https://www.geeksforgeeks.org/pyqt5-qspinbox-widget/
+'''
 
 from PyQt5 import QtCore, QtWidgets
 
