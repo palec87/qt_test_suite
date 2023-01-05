@@ -17,7 +17,6 @@ class App(QtWidgets.QMainWindow):
         self.show()
 
     def UiComponents(self):
-
         self.spin = QtWidgets.QSpinBox(self)
         self.spin.setGeometry(100, 100, 100, 40)
         self.spin.valueChanged.connect(self.show_result)
