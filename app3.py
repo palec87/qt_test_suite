@@ -2,9 +2,24 @@
 # -*- coding: utf-8 -*-
 import sys
 
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QCoreApplication, QObject, Qt
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QPushButton,
+    QMessageBox,
+    QAction,
+    QMenu,
+    QMainWindow,
+    QTextEdit,
+    QLineEdit,
+    QGridLayout,
+    QLabel,
+)
+
+# from PyQt5 import QtCore, QtGui, QtWidgets
+# from PyQt5.QtCore import QCoreApplication, QObject, Qt
 from PyQt5.QtGui import QIcon
+from PyQt5 import QtCore
 from PyQt5.QtWidgets import *
 
 
@@ -16,22 +31,22 @@ class Example(QMainWindow):
     def initUI(self, MainWindow):
         # centralwidget
         MainWindow.resize(346, 193)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget = QWidget(MainWindow)
         # The Action to quit
         self.toolb_action_Exit = QAction(QIcon("exit.png"), "Exit", self)
         self.toolb_action_Exit.setShortcut("Ctrl+Q")
         self.toolb_action_Exit.triggered.connect(self.close)
 
         # The Button
-        self.btn_prt = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_prt = QPushButton(self.centralwidget)
         self.btn_prt.setGeometry(QtCore.QRect(120, 20, 89, 25))
         self.btn_prt.clicked.connect(lambda: self.doPrint())
-        self.btn_quit = QtWidgets.QPushButton(self.centralwidget)
+        self.btn_quit = QPushButton(self.centralwidget)
         self.btn_quit.setGeometry(QtCore.QRect(220, 20, 89, 25))
         self.btn_quit.clicked.connect(lambda: self.close())
 
         # The textEdit
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
+        self.textEdit = QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(10, 60, 321, 81))
 
         # Show the frame

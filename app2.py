@@ -53,6 +53,21 @@ class mainwindow(QMainWindow):
         self.setWindowTitle("Whatsapp Message Sender")
         self.show()
 
+    def closeEvent(self, event):
+        # Ask a question before to quit.
+        self.replyClosing = QMessageBox.question(
+            self,
+            "Message",
+            "Are you sure to quit?",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No,
+        )
+
+        if self.replyClosing == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
+
     # MODIFYING CLOSE EVENT SO IT ASKS BEFORE EXIT
     # def closeEvent(self, event):
     #     reply = QMessageBox.question(
@@ -65,8 +80,15 @@ class mainwindow(QMainWindow):
     #         event.accept()
 
 
-if __name__ == "__main__":
+def main_GUI():
     app = QApplication(sys.argv)
-    ex = mainwindow()
-    ex.show()
-    sys.exit(app.exec())
+    imageViewer = mainwindow()
+    imageViewer.show()
+    return app, imageViewer
+
+
+if __name__ == "__main__":
+    app, imageViewer = main_GUI()
+    rc = app.exec_()
+    print("App end is exit code {}".format(rc))
+    sys.exit(rc)

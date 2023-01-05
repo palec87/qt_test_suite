@@ -18,8 +18,10 @@ from PyQt5.QtWidgets import (
 )
 # from PyQt5 import QtCore, QtWidgets
 # from app import App
-from app2 import mainwindow
+from PyQt5 import QtTest
+from app2 import main_GUI
 import time
+from pytestqt.plugin import QtBot
 
 
 def divide(x, y):
@@ -63,16 +65,24 @@ def test_raises():
 #     assert eval(attr) == expected
 
 
-# @pytest.fixture
-# def app(qtbot):
-#     test_app = mainwindow()
-#     qtbot.addWidget(test_app)
-#     return test_app
+@pytest.fixture(scope='module')
+def app(qapp, request):
+    result = QtBot(qapp)
+    with capture_exceptions() as exceptions:
+        yield result
+    print("  TEARDOWN qtbot")
 
-# def test_app2(app):
-#     # app = QApplication([])
-#     # window = mainwindow()
-#     # qtbot.addWidget(window)
 
-#     app.msgbox.setText('bla')
-#     assert app.msgbox.toPlainText() == 'bla'
+@pytest.fixture(scope="module")
+def Viewer(request):
+    print("  SETUP GUI")
+    app, imageViewer = main_GUI()
+    qtbotbis = QtBot(app)
+    QtTest.QTest.qWait(int(0.5*100))
+    return app, imageViewer, qtbotbis
+
+
+def test_app2(Viewer):
+    app, imageViewer, qtbot = Viewer
+    imageViewer.msgbox.setText('bla')
+    assert imageViewer.msgbox.toPlainText() == 'bla'
