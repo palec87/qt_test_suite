@@ -63,10 +63,16 @@ def test_raises():
 #     assert eval(attr) == expected
 
 
-def test_app2(qtbot):
-    # app = QApplication()
-    window = mainwindow()
-    qtbot.addWidget(window)
+@pytest.fixture
+def app(qtbot):
+    test_app = mainwindow()
+    qtbot.addWidget(test_app)
+    return test_app
 
-    window.msgbox.setText('bla')
-    assert window.msgbox.toPlainText() == 'bla'
+def test_app2(app):
+    # app = QApplication([])
+    # window = mainwindow()
+    # qtbot.addWidget(window)
+
+    app.msgbox.setText('bla')
+    assert app.msgbox.toPlainText() == 'bla'
