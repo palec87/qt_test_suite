@@ -23,7 +23,7 @@ jobs:
         QT_DEBUG_PLUGINS: 1
       run: |
         ulimit -c unlimited
-        sudo catchsegv xvfb-run --auto-servernum `which coverage` run -m pytest
+        sudo xvfb-run --auto-servernum run -m pytest
     - name: chmod
       if: always()
       run: |
