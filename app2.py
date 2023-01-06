@@ -68,17 +68,6 @@ class mainwindow(QMainWindow):
         else:
             event.ignore()
 
-    # MODIFYING CLOSE EVENT SO IT ASKS BEFORE EXIT
-    # def closeEvent(self, event):
-    #     reply = QMessageBox.question(
-    #         self, "Message", "quit?", QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes
-    #     )
-
-    #     if reply == QMessageBox.No:
-    #         event.ignore()
-    #     else:
-    #         event.accept()
-
 
 def main_GUI():
     app = QApplication(sys.argv)

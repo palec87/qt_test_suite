@@ -19,7 +19,7 @@ from PyQt5.QtWidgets import (
 # from PyQt5 import QtCore, QtWidgets
 # from app import App
 from PyQt5 import QtTest
-from app2 import main_GUI
+from app import main_GUI
 import time
 from pytestqt.plugin import QtBot
 
@@ -82,18 +82,11 @@ def Viewer():
     return app, imageViewer, qtbotbis
 
 
-def test_app2(Viewer):
-    _, imageViewer, _ = Viewer
-    imageViewer.msgbox.setText('bla')
-    assert imageViewer.msgbox.toPlainText() == 'bla'
-
-
 @pytest.mark.parametrize(
-    'set, expected',
-    [('bla', 'bla'), ('9', '9'),
+    'set_val, expected',
+    [(34, 34), (9, 9),
      ])
-def test_app2_01(Viewer, set, expected):
+def test_app(Viewer, set_val, expected):
     _, imageViewer, _ = Viewer
-    imageViewer.msgbox.setText(set)
-    time.sleep(0.1)
-    assert imageViewer.msgbox.toPlainText() == expected
+    imageViewer.spin.setValue(set_val)
+    assert imageViewer.spin.value() == expected

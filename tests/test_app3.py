@@ -34,5 +34,4 @@ def Viewer(request):
 def test_interface(Viewer):
     print("  beginning ")
     app, imageViewer, qtbot = Viewer
-
     assert imageViewer.textEdit.toPlainText() == ''

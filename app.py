@@ -5,7 +5,8 @@ Simple app with one spinbox based on
 https://www.geeksforgeeks.org/pyqt5-qspinbox-widget/
 '''
 
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtWidgets
+import sys
 
 
 class App(QtWidgets.QMainWindow):
@@ -28,11 +29,15 @@ class App(QtWidgets.QMainWindow):
         print(self.label.text())
 
 
-if __name__ == '__main__':
-
-    import sys
-
+def main_GUI():
     app = QtWidgets.QApplication(sys.argv)
-    gallery = App()
-    gallery.show()
-    sys.exit(app.exec())
+    imageViewer = App()
+    imageViewer.show()
+    return app, imageViewer
+
+
+if __name__ == '__main__':
+    app, imageViewer = main_GUI()
+    rc = app.exec_()
+    print("App end is exit code {}".format(rc))
+    sys.exit(rc)
