@@ -8,19 +8,14 @@ from PyQt5.QtWidgets import (
     QPushButton,
     QMessageBox,
     QAction,
-    QMenu,
     QMainWindow,
     QTextEdit,
-    QLineEdit,
-    QGridLayout,
-    QLabel,
 )
 
 # from PyQt5 import QtCore, QtGui, QtWidgets
 # from PyQt5.QtCore import QCoreApplication, QObject, Qt
 from PyQt5.QtGui import QIcon
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import *
 
 
 class Example(QMainWindow):
