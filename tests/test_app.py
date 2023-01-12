@@ -89,4 +89,5 @@ def Viewer():
 def test_app(Viewer, set_val, expected):
     _, imageViewer, _ = Viewer
     imageViewer.spin.setValue(set_val)
+    QtTest.QTest.qWait(int(0.5*100))
     assert imageViewer.spin.value() == expected
