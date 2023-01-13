@@ -64,9 +64,9 @@ def app(qapp):
 def Viewer():
     print("  SETUP GUI")
     app, imageViewer = main_GUI()
-    QtTest.QTest.qWait(int(0.5*100))
+    # QtTest.QTest.qWait(int(0.5*100))
     qtbotbis = QtBot(app)
-    QtTest.QTest.qWait(int(0.5*100))
+    # QtTest.QTest.qWait(int(0.5*100))
     return app, imageViewer, qtbotbis
 
 

@@ -3,21 +3,6 @@
 '''Basic tests of the optac module'''
 
 import pytest
-from PyQt5.QtWidgets import (
-    QApplication,
-    QWidget,
-    QPushButton,
-    QMessageBox,
-    QAction,
-    QMenu,
-    QMainWindow,
-    QTextEdit,
-    QLineEdit,
-    QGridLayout,
-    QLabel,
-)
-# from PyQt5 import QtCore, QtWidgets
-# from app import App
 from PyQt5 import QtTest
 from app2 import main_GUI
 import time
@@ -68,9 +53,10 @@ def test_raises():
 @pytest.fixture(scope='module')
 def app(qapp):
     result = QtBot(qapp)
-    with capture_exceptions() as exceptions:
-        yield result
-    print("  TEARDOWN qtbot")
+    return result
+    # with capture_exceptions() as exceptions:
+    #     yield result
+    # print("  TEARDOWN qtbot")
 
 
 @pytest.fixture(scope="module")
@@ -94,6 +80,7 @@ def test_app2(Viewer):
      ])
 def test_app2_01(Viewer, set, expected):
     _, imageViewer, _ = Viewer
+    time.sleep(0.2)
     imageViewer.msgbox.setText(set)
     time.sleep(0.1)
     assert imageViewer.msgbox.toPlainText() == expected

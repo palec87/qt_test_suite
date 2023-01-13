@@ -25,8 +25,7 @@ jobs:
         QT_DEBUG_PLUGINS: 1
       run: |
         ulimit -c unlimited
-        # xvfb-run --auto-servernum python -m pytest
-        sudo xvfb-run --auto-servernum run -m pytest
+        xvfb-run --auto-servernum python -m pytest
     - name: chmod
       if: always()
       run: |
