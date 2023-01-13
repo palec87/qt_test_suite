@@ -51,20 +51,20 @@ class Example(QMainWindow):
     def doPrint(self):
         print("TEST doPrint")
 
-    def closeEvent(self, event):
-        # Ask a question before to quit.
-        self.replyClosing = QMessageBox.question(
-            self,
-            "Message",
-            "Are you sure to quit?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
-        )
+    # def closeEvent(self, event):
+    #     # Ask a question before to quit.
+    #     self.replyClosing = QMessageBox.question(
+    #         self,
+    #         "Message",
+    #         "Are you sure to quit?",
+    #         QMessageBox.Yes | QMessageBox.No,
+    #         QMessageBox.No,
+    #     )
 
-        if self.replyClosing == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
+    #     if self.replyClosing == QMessageBox.Yes:
+    #         event.accept()
+    #     else:
+    #         event.ignore()
 
 
 def main_GUI():

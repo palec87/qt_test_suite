@@ -12,8 +12,9 @@ from PyQt5.QtWidgets import (
 
 
 class mainwindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super(mainwindow, self).__init__(parent)
+        # super().__init__()
 
         self.createUI()
 
@@ -50,20 +51,20 @@ class mainwindow(QMainWindow):
         self.setWindowTitle("Whatsapp Message Sender")
         self.show()
 
-    def closeEvent(self, event):
-        # Ask a question before to quit.
-        self.replyClosing = QMessageBox.question(
-            self,
-            "Message",
-            "Are you sure to quit?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
-        )
+    # def closeEvent(self, event):
+    #     # Ask a question before to quit.
+    #     self.replyClosing = QMessageBox.question(
+    #         self,
+    #         "Message",
+    #         "Are you sure to quit?",
+    #         QMessageBox.Yes | QMessageBox.No,
+    #         QMessageBox.No,
+    #     )
 
-        if self.replyClosing == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
+    #     if self.replyClosing == QMessageBox.Yes:
+    #         event.accept()
+    #     else:
+    #         event.ignore()
 
 
 def main_GUI():
