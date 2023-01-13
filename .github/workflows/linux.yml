@@ -16,9 +16,9 @@ jobs:
       run: |
         # sudo apt-get update
         sudo apt-get install -y xvfb x11-utils libxkbcommon-x11-0
-        # sudo apt-get -qq install libxcb-xinerama0 pyqt5-dev-tools
+        sudo apt-get -qq install libxcb-xinerama0 pyqt5-dev-tools
         python -m pip install --upgrade pip
-        # pip install pyside2 pytest coverage pytest-qt
+        pip install pyside2 pytest coverage pytest-qt
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test
       env:
